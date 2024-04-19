@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Mi app de tareas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <h5>Recordar tarea de Aplicaciones Móviles</h5>
+    <ion-row>
+      <ion-textarea>Hacer push a github</ion-textarea>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col>
+        <h5>Fecha</h5>
+      </ion-col>
+      <ion-col>
+        <p>5/2024</p>
+      </ion-col>
+    </ion-row>
+    <ion-card-content id="base">
+      <h6>+ Ver mas detalles</h6>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let tareas of tareas">
+    <h5>{{tareaNueva.titulo}}</h5>
+    <ion-row>
+      <ion-textarea>{{tareaNueva.descripcion}}</ion-textarea>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col>
+        <h5>Fecha</h5>
+      </ion-col>
+      <ion-col>
+        <p>{{tareaNueva.fechames}}/{{tareaNueva.fechaanio}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-card-content id="base">
+      <h6>+ Ver mas detalles</h6>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openModal()">+</ion-fab-button>
+  </ion-fab>
+</ion-content>
