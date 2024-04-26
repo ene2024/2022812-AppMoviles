@@ -6,48 +6,46 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <h5>Recordar tarea de Aplicaciones Móviles</h5>
+<ion-content [fullscreen]="true">
+  <p>Escribe tus tareas...</p>
+  <ion-card *ngFor="let tareas of tareas; index as i">
+    <br>
     <ion-row>
-      <ion-textarea>Hacer push a github</ion-textarea>
-    </ion-row>
-    <ion-row no-padding>
-      <ion-col>
-        <h5>Fecha</h5>
+      <ion-col size="10">
+        <ion-checkbox labelPlacement="end">
+          <h5>{{tareas.titulo}}</h5>
+        </ion-checkbox>
       </ion-col>
-      <ion-col>
-        <p>5/2024</p>
+      <ion-col size="2">
+        <ion-button (click)="eliminartarea(i)">Eliminar tarea</ion-button>
       </ion-col>
     </ion-row>
-    <ion-card-content id="base">
-      <h6>+ Ver mas detalles</h6>
-    </ion-card-content>
+    <br>
+    <div class="detalles">
+      <ion-accordion-group color="light">
+        <ion-accordion value="first" color="light">
+          <ion-item slot="header" color="light">
+            <ion-label>Ver mas detalles</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-row no-padding>
+              <h6>{{tareas.descripcion}}</h6>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col>
+                <h6>Fecha</h6>
+              </ion-col>
+              <ion-col>
+                <h6>{{tareas.fechames}}/{{tareas.fechaanio}}</h6>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </div>
   </ion-card>
-
-  <ion-card *ngFor="let tareas of tareas">
-    <h5>{{tareaNueva.titulo}}</h5>
-    <ion-row>
-      <ion-textarea>{{tareaNueva.descripcion}}</ion-textarea>
-    </ion-row>
-    <ion-row no-padding>
-      <ion-col>
-        <h5>Fecha</h5>
-      </ion-col>
-      <ion-col>
-        <p>{{tareaNueva.fechames}}/{{tareaNueva.fechaanio}}</p>
-      </ion-col>
-    </ion-row>
-    <ion-card-content id="base">
-      <h6>+ Ver mas detalles</h6>
-    </ion-card-content>
-  </ion-card>
-
-
-
-
-
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="openModal()">+</ion-fab-button>
   </ion-fab>
+<br><br><br><br><br><br><br>
 </ion-content>
