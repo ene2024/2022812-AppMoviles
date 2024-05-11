@@ -1,0 +1,18 @@
+.title{
+    text-align: center;
+    color: white
+}
+
+ion-content.fullscreen{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+ion-list.list-fullscreen {
+    height: 100%;
+    flex: 1;
+    overflow-y: auto;
+}

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="title">Notas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fullscreen">
+  <ion-list lines="full" class="list-fullscreen">
+    <ion-item-sliding *ngFor="let nota of notas">
+      <ion-item  [routerLink]="['/nota-detalle', nota.id]">
+      <ion-label>
+        <h2>{{ nota.titulo }}</h2>
+        <p>{{ nota.descripcion }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="eliminarNota(nota)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<ion-fab slot="mixed" vertical="bottom" horizontal="end"  (click)="abrirModalAgregarNota()">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
