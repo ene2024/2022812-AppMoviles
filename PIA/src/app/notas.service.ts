@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class NotasService {
   notas: any[] = [];
   nuevaNotaEmitter: EventEmitter<any> = new EventEmitter<any[]>();
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.notas = []; // Inicializa la lista de notas
     console.log('Notas inicializadas:', this.notas);
   }
@@ -56,4 +57,5 @@ export class NotasService {
       console.error('No se encontró la nota a eliminar');
     }
   }
+
 }

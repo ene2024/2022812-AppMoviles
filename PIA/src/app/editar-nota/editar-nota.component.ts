@@ -7,19 +7,24 @@ import { NotasService } from '../notas.service';
   templateUrl: './editar-nota.component.html',
   styleUrls: ['./editar-nota.component.scss'],
 })
-export class EditarNotaComponent  implements OnInit {
-  nota: any;
+export class EditarNotaComponent implements OnInit {
+  nota: any = { id: '', titulo: '', descripcion: '' };
 
-  constructor(private route: ActivatedRoute, private router: Router, private notasService: NotasService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private notasService: NotasService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void{
-    const notaId = this.route.snapshot.params['id'];
-    this.nota = this.notasService.obtenerNotaSeleccionada(notaId);
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const notaId = params['id'];
+      this.nota = this.notasService.obtenerNotaSeleccionada(notaId);
+    });
   }
 
-  guardarCambios() {
+  guardarNota() {
     this.notasService.actualizarNota(this.nota);
-    this.router.navigate(['/detalles-nota', this.nota.id]);
+    this.router.navigate(['/lista-notas']);
   }
-
 }

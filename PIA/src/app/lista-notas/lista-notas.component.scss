@@ -16,3 +16,16 @@ ion-list.list-fullscreen {
     flex: 1;
     overflow-y: auto;
 }
+
+ion-content{
+    --ion-background-color: rgb(255, 108, 235);
+}
+
+ion-toolbar{
+    --ion-background-color: #d020c4;
+    color: white;
+}
+
+-ion-button{
+    --background: #ffe944;
+}
